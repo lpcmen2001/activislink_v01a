@@ -11,14 +11,27 @@ export default class Signup extends React.Component {
   }
   onSubmit(e){
       e.preventDefault();
-      
+
       let email = this.refs.email.value.trim();
       let password = this.refs.password.value.trim();
 
+      if (password.length < 9){
+          return this.setState({error: 'Password must be more than 8 characters long.'})
+      }
+
       Accounts.createUser({email: email, password: password},(err)=>{
-        console.log("Signup callback", err);
+        if (err){
+            this.setState({error: err.reason});
+        }else{
+            this.setState({error: ''});
+        }
       });
   }
+  componentDidMount(){
+    if (Meteor.userId()){
+      this.props.history.replace('/links');
+    }
+  };
   render(){
     return (
       <div>
@@ -28,8 +41,8 @@ export default class Signup extends React.Component {
 
         <p>We are currently in open signups.</p>
         
-        <form onSubmit={this.onSubmit.bind(this)}>
-            <input type="email" ref="email" name="email" placeholder="Email"/>
+        <form onSubmit={this.onSubmit.bind(this)} noValidate>
+            <input type="email" ref="email" name="email" placeholder="Email" noValidate/>
             <input type="password" ref="password" name="password" placeholder="Password"/>
             <button>Create Account</button>
         </form>
