@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import { Links } from '../api/links';
 
@@ -13,6 +14,7 @@ export default class LinksList extends React.Component {
         console.log("componentDidMount LinksList")
 
         this.linksTracker = Tracker.autorun(()=>{
+        Meteor.subscribe('links');
         const allLinks = Links.find().fetch();
         this.setState({links:allLinks});
         console.log ('All Links : ', allLinks);
