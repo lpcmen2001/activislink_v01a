@@ -1,19 +1,19 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { Links } from '../api/links';
 import LinksList from './LinksList';
 import PrivateHeader from './PrivateHeader';
 import AddLink from './AddLink';
+import LinksListFilters from './LinkListFilters';
 
-export default class Link extends React.Component {
-  render(){
-    return (
-        <div>
-            <PrivateHeader title='Your links'/>
-            <LinksList/>
-            <AddLink/>
-        </div>
-    );  
-  }
-}
+export default () => {
+  return (
+    <div>
+      <PrivateHeader title='Your links'/>
+      <div className="page-content">
+      <LinksListFilters/>
+      <AddLink/>
+      <LinksList/>
+      </div>
+    </div>
+  );
+};
