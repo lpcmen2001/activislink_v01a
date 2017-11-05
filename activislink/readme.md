@@ -1,1 +1,1 @@
-Author : Louis-Philippe Couture
+Author : Louis-Philippe Couture.
