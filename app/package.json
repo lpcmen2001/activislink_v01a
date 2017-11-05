@@ -9,6 +9,7 @@
     "clipboard": "^1.7.1",
     "meteor-node-stubs": "~0.2.4",
     "moment": "^2.19.1",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-flip-move": "^2.9.17",
