@@ -60,11 +60,11 @@ export default class LinksListItem extends React.Component {
 }
 
 LinksListItem.propTypes = {
-    _id: React.PropTypes.string.isRequired,
-    url: React.PropTypes.string.isRequired,
-    visible: React.PropTypes.bool.isRequired,
-    userId: React.PropTypes.string.isRequired,
-    shortUrl: React.PropTypes.string.isRequired,
-    visitedCount: React.PropTypes.number.isRequired,
-    lastVisitedAt: React.PropTypes.number
+    _id: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    visible: PropTypes.bool.isRequired,
+    userId: PropTypes.string.isRequired,
+    shortUrl: PropTypes.string.isRequired,
+    visitedCount: PropTypes.number.isRequired,
+    lastVisitedAt: PropTypes.number
 };
